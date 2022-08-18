@@ -8,6 +8,7 @@ end
 
 class LinkedList
   attr_reader :size
+  attr_reader :head
   def initialize
     @head = Node.new 
     @size = 0
