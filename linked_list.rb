@@ -14,6 +14,7 @@ class LinkedList
   end 
   
   def append(value)
+    @size += 1
     if @head.value == nil
       @head.value=(value)
       return
@@ -23,10 +24,10 @@ class LinkedList
     end
     @head.next_node = Node.new
     @head.next_node.value=(value)
-    @size += 1
   end
 
   def prepend(value)
+    @size += 1
     if @head.value == nil
       @head.value=(value)
       return
@@ -35,7 +36,6 @@ class LinkedList
     nou_node.value=(value)
     nou_node.next_node=(@head)
     @head = nou_node
-    @size += 1
   end
 end
  
