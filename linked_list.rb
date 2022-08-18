@@ -99,6 +99,28 @@ class LinkedList
     return_string += aux.value.to_s
     return_string
   end
+
+  def insert_at(value, index)
+    return if index > size
+    @size += 1
+    if index == size - 1
+      append(value)
+      return
+    end
+    if index == 0
+      self.prepend(value)
+      return
+    end
+    aux = @head
+    while index > 1 do 
+      aux = aux.next_node
+      index -= 1
+    end
+    nou_node = Node.new
+    nou_node.value=(value)
+    nou_node.next_node=(aux.next_node)
+    aux.next_node=(nou_node)
+  end
 end
  
 
@@ -109,4 +131,5 @@ llista.append(9)
 llista.append(8)
 llista.prepend(5)
 llista.pop
+llista.insert_at(2, 0)
 puts llista.to_s
