@@ -66,6 +66,15 @@ class LinkedList
     end
     aux.next_node = nil
   end
+
+  def contains?(value)
+    aux = @head
+    until aux.next_node == nil do
+      return true if aux.value == value
+      aux = aux.next_node
+    end
+    return false
+  end
 end
  
 
@@ -76,5 +85,5 @@ llista.append(9)
 llista.append(8)
 llista.prepend(5)
 llista.pop
-p llista.head
+puts llista.contains?(8)
 
