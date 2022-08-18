@@ -20,11 +20,12 @@ class LinkedList
       @head.value=(value)
       return
     end
-    until @head.next_node == nil do
-      @head = @head.next_node
+    aux = @head
+    until aux.next_node == nil do
+      aux = aux.next_node
     end
-    @head.next_node = Node.new
-    @head.next_node.value=(value)
+    aux.next_node = Node.new
+    aux.next_node.value=(value)
   end
 
   def prepend(value)
@@ -38,10 +39,22 @@ class LinkedList
     nou_node.next_node=(@head)
     @head = nou_node
   end
+
+  def tail
+    aux = @head
+    until aux.next_node == nil do
+      aux = aux.next_node
+    end
+    return aux
+  end
 end
  
 
 llista = LinkedList.new
 llista.append(3)
+llista.append(6)
+llista.append(9)
+llista.append(8)
 llista.prepend(5)
-puts llista.size
+p llista.head
+p llista.tail
