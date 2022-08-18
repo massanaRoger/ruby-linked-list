@@ -88,6 +88,17 @@ class LinkedList
     end
     return i if aux.value == value
   end
+
+  def to_s
+    return_string = ""
+    aux = @head
+    until aux.next_node == nil do
+      return_string += "#{aux.value} -> " 
+      aux = aux.next_node
+    end
+    return_string += aux.value.to_s
+    return_string
+  end
 end
  
 
@@ -98,8 +109,4 @@ llista.append(9)
 llista.append(8)
 llista.prepend(5)
 llista.pop
-puts llista.find(5)
-puts llista.find(9)
-puts llista.find(8)
-puts llista.find(6)
-p llista.head
+puts llista.to_s
