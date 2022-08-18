@@ -121,6 +121,20 @@ class LinkedList
     nou_node.next_node=(aux.next_node)
     aux.next_node=(nou_node)
   end
+
+  def remove_at(index)
+    return if index > size
+    if index == 0
+      @head = @head.next_node
+      return
+    end
+    aux = @head
+    while index > 1 do 
+      aux = aux.next_node
+      index -= 1
+    end
+    aux.next_node = aux.next_node.next_node
+  end
 end
  
 
@@ -132,4 +146,6 @@ llista.append(8)
 llista.prepend(5)
 llista.pop
 llista.insert_at(2, 0)
+puts llista.to_s
+llista.remove_at(0)
 puts llista.to_s
