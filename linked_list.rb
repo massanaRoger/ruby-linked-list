@@ -73,7 +73,20 @@ class LinkedList
       return true if aux.value == value
       aux = aux.next_node
     end
+    return true if aux.value == value
     return false
+  end
+
+  def find(value)
+    return nil unless contains?(value)
+    i = 0
+    aux = @head
+    until aux.next_node == nil do
+      return i if aux.value == value 
+      aux = aux.next_node
+      i += 1
+    end
+    return i if aux.value == value
   end
 end
  
@@ -85,5 +98,8 @@ llista.append(9)
 llista.append(8)
 llista.prepend(5)
 llista.pop
-puts llista.contains?(8)
-
+puts llista.find(5)
+puts llista.find(9)
+puts llista.find(8)
+puts llista.find(6)
+p llista.head
