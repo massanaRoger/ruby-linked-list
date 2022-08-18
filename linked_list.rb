@@ -45,7 +45,17 @@ class LinkedList
     until aux.next_node == nil do
       aux = aux.next_node
     end
-    return aux
+    aux
+  end
+
+  def at(index)
+    return if index > size
+    aux = @head
+    while index > 0 do
+      aux = aux.next_node
+      index -= 1
+    end
+    aux
   end
 end
  
@@ -56,5 +66,4 @@ llista.append(6)
 llista.append(9)
 llista.append(8)
 llista.prepend(5)
-p llista.head
-p llista.tail
+p llista.at(4)
