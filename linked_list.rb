@@ -57,6 +57,15 @@ class LinkedList
     end
     aux
   end
+
+  def pop
+    return if size == 0
+    aux = @head
+    until aux.next_node.next_node == nil do
+      aux = aux.next_node
+    end
+    aux.next_node = nil
+  end
 end
  
 
@@ -66,4 +75,6 @@ llista.append(6)
 llista.append(9)
 llista.append(8)
 llista.prepend(5)
-p llista.at(4)
+llista.pop
+p llista.head
+
